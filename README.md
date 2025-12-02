@@ -6,7 +6,7 @@ Run [OpenAGI's Lux](https://agiopen.org) computer-use model against cloud browse
 
 📹 **[Watch the demo video](agent_replay.mp4)** - Shows the Lux agent navigating to agiopen.org using a Kernel cloud browser.
 
-<!-- To embed the video on GitHub: edit this README on github.com and drag agent_replay.mp4 into this section -->
+https://github.com/user-attachments/assets/6e70fb14-9461-4f7e-ae63-f2eb92bc40b8
 
 ## What is OpenAGI?
 
