@@ -40,6 +40,7 @@ async def run_agent(instruction: str, replay_output: str = "agent_replay.mp4") -
         agent = AsyncDefaultAgent(
             api_key=os.getenv("OAGI_API_KEY"),
             max_steps=20,
+            model="lux-actor-1" # or "lux-thinker-1" for more complex tasks
         )
 
         # Execute the task
