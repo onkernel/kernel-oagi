@@ -10,14 +10,14 @@ import asyncio
 import os
 
 from dotenv import load_dotenv
-from oagi import AsyncDefaultAgent
+from oagi.agent.tasker import TaskerAgent
 
 from kernel_handler import KernelActionHandler
 from kernel_provider import KernelScreenshotProvider
 from kernel_session import KernelBrowserSession
 
 
-async def run_agent(instruction: str, replay_output: str = "agent_replay.mp4") -> bool:
+async def run_tasker_agent(instruction: str, replay_output: str = "video_agent_replay.mp4") -> bool:
     """
     Run an OpenAGI Lux agent with Kernel browser.
 
@@ -37,20 +37,30 @@ async def run_agent(instruction: str, replay_output: str = "agent_replay.mp4") -
         handler = KernelActionHandler(session)
 
         # Create the OpenAGI agent
-        agent = AsyncDefaultAgent(
+        tasker_agent = TaskerAgent(
             api_key=os.getenv("OAGI_API_KEY"),
-            max_steps=20,
+            base_url=os.getenv("OAGI_BASE_URL", "https://api.agiopen.org"),
+        )
+
+        # Set the task
+        tasker_agent.set_task(
+            task="Navigate to the 'What is Computer Use' section of the OAGI homepage.",
+            todos=[
+            "Go to https://agiopen.org.", 
+            "Make sure to press enter to start the navigation.",
+            "Click on the 'What is Computer Use?' button.."
+            ]
         )
 
         # Execute the task
-        print(f"\nExecuting task: {instruction}\n")
-        success = await agent.execute(
-            instruction=instruction,
+        result = await tasker_agent.execute(
+            instruction="",
             action_handler=handler,
-            image_provider=provider,
+            image_provider=provider
         )
+        print("Execution successful: ", result)
 
-        return success
+        return result
 
 
 def main():
@@ -70,10 +80,10 @@ def main():
     instruction = (
         "Go to https://agiopen.org. Make sure to press enter to start the navigation."
     )
-    replay_path = "agent_replay.mp4"
+    replay_path = "video_agent_replay.mp4"
 
     # Run the agent
-    success = asyncio.run(run_agent(instruction, replay_output=replay_path))
+    success = asyncio.run(run_tasker_agent(instruction, replay_output=replay_path))
 
     if success:
         print("\n✓ Task completed successfully!")
