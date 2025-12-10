@@ -152,7 +152,7 @@ The agent will:
 1. Launch a cloud browser via Kernel
 2. Start recording a video replay
 3. Execute the task using Lux's vision-action loop
-4. Save the replay as `agent_replay.mp4`
+4. Save the replay as `video_agent_replay.mp4`
 5. Clean up the browser session
 
 ## Project Structure
@@ -164,7 +164,7 @@ The agent will:
 ├── kernel_provider.py     # Screenshot provider using Kernel API
 ├── kernel_handler.py      # Action handler with key translation
 ├── pyproject.toml         # Project dependencies
-└── agent_replay.mp4       # Recorded demo video
+└── video_agent_replay.mp4       # Recorded demo video
 ```
 
 ## License

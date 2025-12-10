@@ -17,7 +17,7 @@ from kernel_provider import KernelScreenshotProvider
 from kernel_session import KernelBrowserSession
 
 
-async def run_agent(instruction: str, replay_output: str = "agent_replay.mp4") -> bool:
+async def run_tasker_agent(instruction: str, replay_output: str = "video_agent_replay.mp4") -> bool:
     """
     Run an OpenAGI Lux agent with Kernel browser.
 
@@ -80,10 +80,10 @@ def main():
     instruction = (
         "Go to https://agiopen.org. Make sure to press enter to start the navigation."
     )
-    replay_path = "agent_replay.mp4"
+    replay_path = "video_agent_replay.mp4"
 
     # Run the agent
-    success = asyncio.run(run_agent(instruction, replay_output=replay_path))
+    success = asyncio.run(run_tasker_agent(instruction, replay_output=replay_path))
 
     if success:
         print("\n✓ Task completed successfully!")
