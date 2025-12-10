@@ -1,10 +1,10 @@
 # OpenAGI Lux + Kernel Browser Integration
 
-Run [OpenAGI's Lux](https://agiopen.org) computer-use models against cloud browsers powered by [Kernel](https://onkernel.com).
+Run [OpenAGI's Lux](https://agiopen.org) computer-use models against serverless browsers powered by [Kernel](https://onkernel.com).
 
 ## Demo
 
-📹 **[Watch the demo video](https://github.com/user-attachments/assets/6e70fb14-9461-4f7e-ae63-f2eb92bc40b8)** - Shows the Lux agent navigating to agiopen.org using a Kernel cloud browser.
+📹 **[Watch the demo video](https://github.com/user-attachments/assets/6e70fb14-9461-4f7e-ae63-f2eb92bc40b8)** - Shows the Lux agent navigating to agiopen.org using a Kernel serverless browser.
 
 
 ## What is OpenAGI?
@@ -19,7 +19,7 @@ Run [OpenAGI's Lux](https://agiopen.org) computer-use models against cloud brows
 
 [Kernel](https://onkernel.com) provides **Browsers-as-a-Service** for AI agents and browser automation. Key features:
 
-- **Cloud Browsers**: Instantly launch browsers without managing infrastructure
+- **Serverless Browsers**: Instantly launch browsers without managing infrastructure
 - **Computer Controls API**: Native OS-level mouse, keyboard, and screenshot controls
 - **Stealth Mode**: Built-in anti-detection for reliable web automation
 - **Video Replays**: Record browser sessions as MP4 videos
@@ -44,7 +44,7 @@ Choose the right model for your task:
 
 ## How It Works
 
-This integration connects OpenAGI's Lux model to Kernel's cloud browsers using custom providers:
+This integration connects OpenAGI's Lux model to Kernel's serverless browsers using custom providers:
 
 1. **`KernelScreenshotProvider`**: Captures screenshots using Kernel's Computer Controls API
 2. **`KernelActionHandler`**: Translates Lux actions (click, type, scroll) to Kernel commands
@@ -149,7 +149,7 @@ python agent_tasker.py
 
 The agent will:
 
-1. Launch a cloud browser via Kernel
+1. Launch a serverless browser via Kernel
 2. Start recording a video replay
 3. Execute the task using Lux's vision-action loop
 4. Save the replay as `video_agent_replay.mp4`
